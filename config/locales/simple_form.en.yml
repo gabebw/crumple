@@ -14,6 +14,3 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-    labels:
-      link:
-        url: "URL"
