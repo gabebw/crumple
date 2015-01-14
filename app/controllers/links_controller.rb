@@ -6,6 +6,7 @@ class LinksController < ApplicationController
 
   def create
     link = Link.new(link_params)
+    prepend_http_if_no_scheme_given(link)
     link.save
 
     redirect_to link
@@ -13,6 +14,12 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:url)
+  end
+
+  def prepend_http_if_no_scheme_given(link)
+    if link.missing_scheme?
+      link.url = "http://" + link.url
+    end
   end
 
   def host_prefix

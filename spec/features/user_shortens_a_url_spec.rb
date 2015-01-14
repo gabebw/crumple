@@ -14,4 +14,14 @@ feature "User shortens a URL" do
     expect(anchor[:href]).to eq expected_url
     expect(anchor.text).to eq expected_url
   end
+
+  scenario "and defaults to HTTP if they don't give a scheme" do
+    visit root_path
+
+    fill_in "link_url", with: "gabebw.com"
+    click_on "Shorten!"
+
+    link = Link.last
+    expect(link.url).to eq "http://gabebw.com"
+  end
 end

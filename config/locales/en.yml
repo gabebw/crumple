@@ -17,3 +17,8 @@ en:
 
   titles:
     application: Crumple
+
+  activerecord:
+    attributes:
+      link:
+        url: "URL"
