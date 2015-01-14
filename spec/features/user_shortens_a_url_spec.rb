@@ -7,6 +7,8 @@ feature "User shortens a URL" do
     fill_in "link_url", with: "http://gabebw.com"
     click_on "Shorten!"
 
-    expect(find("#link")).to have_content "http://www.example.com/1"
+    expected_url = "http://www.example.com/1"
+    expect(find("#link")).to have_content expected_url
+    expect(find("#link")).to have_link expected_url
   end
 end

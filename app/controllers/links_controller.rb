@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   def show
     link = Link.find(params[:id])
-    @url = URI.join(host_with_port, link.id.to_s)
+    @url = URI.join(host_with_port, link.id.to_s).to_s
   end
 
   def create
