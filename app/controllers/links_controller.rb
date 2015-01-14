@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   def show
     link = Link.find(params[:id])
-    @url = URI.join(host_prefix, link.id.to_s).to_s
+    @url = redirect_url(link)
   end
 
   def create
@@ -20,9 +20,5 @@ class LinksController < ApplicationController
     if link.missing_scheme?
       link.url = "http://" + link.url
     end
-  end
-
-  def host_prefix
-    "http://#{request.host_with_port}/l/"
   end
 end

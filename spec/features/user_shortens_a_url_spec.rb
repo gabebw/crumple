@@ -8,7 +8,7 @@ feature "User shortens a URL" do
     click_on "Shorten!"
 
     link = Link.last
-    expected_url = "http://www.example.com/l/#{link.id}"
+    expected_url = redirect_url(link)
     anchor = find("#link a")
 
     expect(anchor[:href]).to eq expected_url
