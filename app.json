@@ -1,0 +1,16 @@
+{
+  "name": "Crumple, a URL shortener",
+  "description": "This app shortens URLs.",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "RACK_ENV": "production",
+    "RAILS_ENV": "production",
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    }
+  },
+  "addons": ["heroku-postgresql"]
+}
